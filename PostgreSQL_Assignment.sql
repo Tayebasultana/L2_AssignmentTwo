@@ -1,17 +1,17 @@
 -- Active: 1748106806994@@127.0.0.1@5432@conservation_db
 
 
-SELECT * FROM "rangers"
+-- SELECT * FROM "rangers"
 
-SELECT * FROM "species"
+-- SELECT * FROM "species"
 
-SELECT * FROM "sightings"
+-- SELECT * FROM "sightings"
 
-INSERT INTO species (common_name, scientific_name, discovery_date, conservation_status) VALUES
-('Dodo', 'Raphus cucullatus', '1598-01-01', 'Historic'),
-('Great Auk', 'Pinguinus impennis', '1750-01-01', 'Historic'),
-('Tasmanian Tiger', 'Thylacinus cynocephalus', '1800-01-01', 'Historic'),
-('Irish Elk', 'Megaloceros giganteus', '1770-01-01', 'Historic');
+-- UPDATE species
+-- SET conservation_status = 'Least Concern'
+-- WHERE species_id = 10;
+
+
 
 
 -- Problem-1: Register a new ranger
@@ -40,6 +40,7 @@ JOIN rangers r ON si.ranger_id = r.ranger_id
 ORDER BY si.sighting_time DESC LIMIT 2;
 
 -- Problem-7: Update all species discovered before year 1800 to have status 'Historic'.
+Update species SET conservation_status = 'Historic' WHERE discovery_date < '1800-01-01';
 
 -- PRoblem-8: Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
 SELECT sighting_id, CASE 
